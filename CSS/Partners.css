@@ -1,0 +1,885 @@
+ @font-face {
+    font-family: "Archia Bold";
+    src: url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+ @font-face {
+    font-family: "Archia Semi Bold";
+    src: url("../Fonts/Archia_Font_Web/05.Archia-Semibold-webfont/archia-semibold-webfont.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+        font-family: "Archia Regular";
+        src: url("../Fonts/Archia_Font_Web/03.Archia-Regular-webfont/archia-regular-webfont.woff") format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+  @font-face {
+    font-family: "Metric Light";
+    src: url("../Fonts/Metric_font/Metric-Light.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Metric Regular";
+    src: url("../Fonts/Metric_font/Metric-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none !important;
+  }
+
+  body {
+    font-family: sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+  }
+
+
+  /* HEADER STYLES */
+  .top-bar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    height: 60px;
+    background: white;
+    border-radius: 70px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .top-bar .left, .top-bar .right {
+    display: flex;
+    align-items: center;
+  }
+
+  .left .logo-icon {
+    height: 20px;
+    width: 133px;
+    cursor: pointer !important;
+  }
+
+  .page-indicator {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #7a7a7a;
+    pointer-events: none;
+  }
+
+  .top-bar .right a {
+font-family: "Archia Semi Bold";
+  text-decoration: none;
+  color: #0A3959;
+  font-weight: 600;
+  font-size: 27px;
+  cursor: pointer !important;
+  letter-spacing: -6%;
+  }
+
+  /* MAIN CONTENT STYLES */
+  .section-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .left-text {
+    width: 50%;
+    background-color: #EBEBEB;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .left-text h1 {
+    font-size: 48px;
+    font-weight: 600;
+    color: #0A3959;
+    margin-bottom: 15px;
+    font-family: "Archia Semi Bold";
+    letter-spacing: -2%;
+  }
+
+  .left-text p {
+    font-size: 20px;
+    line-height: 22px;
+    color: #0A3959;
+    font-family: "Metric Light";
+    font-weight: 400;
+    letter-spacing: -2%;
+  }
+
+  .right-carousel {
+    width: 50%;
+    background-color: #EBEBEB;
+    overflow: hidden;
+    position: relative;
+    padding-right: 40px;
+  }
+
+  .carousel-track {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    animation: scrollUp 20s linear infinite;
+    gap: 30px;
+  }
+
+  .carousel-video {
+    height: 420px;
+    width: 600px;
+    flex-shrink: 0;
+  }
+
+  .carousel-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  @keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+
+  /* CUSTOM CURSOR */
+  .custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+
+  .cursor-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+      /* Circular Diagram Styles */
+    .diagram-container {
+      position: relative;
+      width: 600px;
+      height: 600px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .center-logo {
+      position: absolute;
+      top: 56%;
+      left: 51%;
+      transform: translate(-50%, -50%);
+      width: 170px;
+      height: 70px;
+      z-index: 10;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .segment {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+
+
+
+    .segment2 {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #0A3959;
+      font-weight: bold;
+    }
+    
+    .segment-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+    }
+    .segment-content1 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 50px;
+      left: 64%;
+      transform: translateX(-50%);
+    }
+    .segment-content2 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 111px;
+      left: 14%;
+      transform: translateX(-50%);
+    }
+    .segment-content3 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 61px;
+      left: 15%;
+      transform: translateX(-50%);
+    }
+    .segment-content4 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 67px;
+      left: 25%;
+      transform: translateX(-50%);
+    }
+    .segment-content5 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 59px;
+      left: 10%;
+      transform: translateX(-50%);
+    }
+    .segment-content6 {
+      position: absolute;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      transform-origin: center;
+      /* You can now modify these properties like you would with #segment1 */
+      top: 92px;
+      left: 12%;
+      transform: translateX(-50%);
+    }
+    
+    .segment-text {
+      font-size: 16px;
+      line-height: 22px;
+      padding: 0 10px;
+      font-family: "Archia Semi Bold";
+      font-weight: 600;
+    }
+    
+    .segment-bg1, .segment-bg2, .segment-bg3, .segment-bg4, .segment-bg5, .segment-bg6 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    
+    .segment-bg1 {
+      width: 230px;
+      height: 160px;
+    }
+    
+    .segment-bg2 {
+      width: 193.53px;
+      height: 203.23px;
+    }
+    .segment-bg3 {
+      width: 193.53px;
+      height: 203.23px;
+    }
+    
+    .segment-bg4 {
+      width: 229.89px;
+      height: 157.85px;
+    }
+    
+    .segment-bg5 {
+      width: 193.71px;
+      height: 203.38px;
+    }
+    .segment-bg6 {
+      width: 193.71px;
+      height: 203.38px;
+    }
+    
+    /* Position each segment */
+    #segment1 { /* Shipping Lanes */
+      top: 40px;
+      left: 281px;
+      transform: translateX(-50%);
+    }
+    
+    #segment2 { /* Trade Associations */
+      top: 105px;
+      right: 23px;
+      transform: rotate(0deg);
+    }
+    
+    #segment3 { /* Global Trading Companies */
+      bottom: 62px;
+      right: 26px;
+      transform: rotate(0deg);
+    }
+    
+    #segment4 { /* Hauliers */
+      bottom: -40px;
+      left: 280px;
+      transform: translateX(-50%) rotate(0deg);
+    }
+    
+    #segment5 { /* Scrap Metal Producers */
+      bottom: 63px;
+      left: 21px;
+      transform: rotate(0deg);
+    }
+    
+    #segment6 { /* Waste Management Companies */
+      top: 106px;
+      left: 24px;
+      transform: rotate(0deg);
+    }
+    
+    .middle-icon {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Link styling */
+    .segment-link {
+      text-decoration: none;
+      color: white;
+    }
+    
+    /* Adjust right-carousel for diagram */
+    .right-carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+
+/* Show normal cursor when hovering over segments */
+
+
+
+.left a {
+  display: inline-block; /* Keeps the logo's original position */
+  line-height: 0;       /* Removes extra space below the image */
+}
+
+.left a, .logo-icon {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+
+
+/* Add this to the end of your existing CSS */
+
+/* Styles for active segments */
+.segment.active .segment-bg1 {
+    content: url("../Assets/Icons/partners-vector/1.svg");
+}
+
+.segment.active .segment-bg2 {
+    content: url("../Assets/Icons/partners-vector/2.svg");
+}
+
+.segment.active .segment-bg3 {
+    content: url("../Assets/Icons/partners-vector/3.svg");
+}
+
+.segment.active .segment-bg4 {
+    content: url("../Assets/Icons/partners-vector/White/4_BLUE.svg");
+}
+
+.segment.active .segment-bg5 {
+    content: url("../Assets/Icons/partners-vector/5.svg");
+}
+
+.segment.active .segment-bg6 {
+    content: url("../Assets/Icons/partners-vector/6.svg");
+}
+
+/* Styles for active segment text */
+.segment.active .segment-text {
+    color: white;
+}
+
+/* Prevent default link behavior for segment links */
+.segment-link {
+    pointer-events: none;
+}
+
+/* But allow clicks on the segments themselves */
+.segment {
+    pointer-events: auto;
+}
+
+
+
+
+/* Add transition for smooth color change */
+.segment-bg1, .segment-bg2, .segment-bg3, 
+.segment-bg4, .segment-bg5, .segment-bg6 {
+    transition: all 0.01s ease;
+}
+
+
+
+
+/* Mobile Responsive Styles (max-width: 800px) */
+@media (max-width: 800px) {
+
+    .top-bar {
+    height: 52px;
+  }
+
+  .left .logo-icon{
+    width: 140px;
+  }
+
+  .left-cursor,
+  .right-cursor {
+    display: none !important;
+  }
+  body {
+    overflow: auto; /* Enable scrolling */
+    height: auto; /* Remove fixed height */
+  }
+
+  .section-container {
+    flex-direction: column; /* Stack sections vertically */
+    height: auto; /* Allow content to determine height */
+    min-height: 100vh; /* Ensure it fills the viewport */
+  }
+
+  .left-text, 
+  .right-carousel {
+    width: 100%; /* Full width for both sections */
+    padding: 40px; /* Adjust padding for mobile */
+    padding-top: 103px;
+  }
+
+  .right-carousel {
+    order: 2; /* Display first */
+    padding: 20px; /* Adjust padding */
+    height: auto; /* Allow content to determine height */
+    padding-bottom:110px ;
+  }
+
+  .left-text {
+    order: 1; /* Display second */
+  }
+
+  /* Adjust diagram for mobile */
+  .diagram-container {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 1/1; /* Maintain square aspect ratio */
+    margin: 0 auto;
+  }
+
+  /* Adjust segment positions for mobile */
+  .segment {
+    width: 120px;
+    height: 120px;
+  }
+
+  .segment-text {
+    font-size: 11px; /* Smaller text for mobile */
+    line-height: 14px;
+    font-weight: 600;
+    font-family: "Archia Semi Bold";
+  }
+
+  /* Adjust header for mobile */
+  .top-bar {
+    padding: 10px 15px; /* Smaller padding */
+  }
+
+  .logo-icon {
+    width: 150px; /* Slightly smaller logo */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Adjust text sizes for mobile */
+  .left-text h1 {
+    font-size: 44px;
+    margin-bottom: 20px;
+  }
+
+  .left-text p {
+    font-family: "Metric Light";
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0%;
+  }
+
+   body {
+    background-color: #EBEBEB !important; /* Match your content background */
+  }
+
+  .section-container {
+    background-color: #EBEBEB; /* Ensure container covers full height */
+  }
+
+  .right-carousel, 
+  .left-text {
+    background-color: #EBEBEB; /* Double-check these match */
+  }
+
+
+  .center-logo {
+    width: 110px; 
+    height: auto; 
+    top: 43%;
+    left: 51%;
+  }
+
+  .segment-bg1{
+    width: 150px;
+    height: 90px;
+  }
+
+  .segment-bg2{
+    width: 108px;
+    height: 114px;
+  }
+
+  .segment-bg3{
+    width: 108px;
+    height: 114px;
+  }
+
+  .segment-bg4{
+    width: 130px;
+    height: 88px;
+  }
+
+  .segment-bg5{
+    width: 108px;
+    height: 114px;
+  }
+
+  .segment-bg6{
+    width: 108px;
+    height: 114px;
+  }
+
+
+  #segment1 {
+    top: 22px;
+    left: 148px;
+    transform: translate(-50%, -50%);
+  }
+
+  #segment2 {
+    top: 20%;
+    left: 86%;
+    transform: translate(-50%, -50%);
+  }
+
+  #segment3 {
+    top: 66%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+  }
+
+  #segment4 {
+    top: 87%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+  }
+
+  #segment5 {
+    top: 66%;
+    left: 19%;
+    transform: translate(-50%, -50%);
+  }
+
+  #segment6 {
+    top: 19%;
+    left: 19%;
+    transform: translate(-50%, -50%);
+  }
+
+  .segment-content1 {
+    width: 100%;
+    top: 24px;
+    left: 64%;  
+  }
+
+  .segment-content2 {
+    width: 100%;
+    top: 56px;
+    left: -5%;  
+  }
+
+  .segment-content3 {
+    width: 100%;
+    top: 33px;
+    left: -5%;  
+  }
+
+  .segment-content4 {
+    width: 100%;
+    top: 35px;
+    left: 5%;  
+  }
+
+  .segment-content5 {
+    width: 100%;
+    top: 30px;
+    left: -5%;  
+  }
+
+  .segment-content6 {
+    width: 100%;
+    top: 48px;
+    left: -5%;  
+  }
+
+}
+
+@media (max-width: 800px) {
+  /* ... (keep all other existing mobile styles) ... */
+
+  /* Fixed size diagram container */
+  .diagram-container {
+    width: 320px; /* Fixed width */
+    height: 320px; /* Fixed height to maintain aspect ratio */
+    max-width: none; /* Remove max-width restriction */
+    margin: 0 auto;
+    transform: scale(0.9); /* Optional: Slightly scale down if needed */
+  }
+
+}
+
+
+/*Animations*/
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.left-text h1 {
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.left-text p {
+  animation: fadeUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+  transform: translateY(35px);
+}
+
+@media (min-width: 1100px) {
+ 
+  .mobile{
+    display: none;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .mobilett{
+    display: none;
+  }
+}
+
+
+/* Add these styles to your Partners.css file */
+
+/* Ensure body can handle slide animations */
+body {
+  font-family: sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(211, 7, 7);
+  position: relative;
+  /* Add transform origin for smooth animations */
+  transform-origin: center center;
+}
+
+/* Enhanced slide animations for this page */
+body.slide-out-left {
+  animation: slideOutLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-out-right {
+  animation: slideOutRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Slide in animations for page entrance */
+body.slide-in-from-left {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-in-from-right {
+  animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideOutLeft {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideOutRight {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideInFromLeft {
+  from { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideInFromRight {
+  from { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+/* Mobile optimized animations */
+@media (max-width: 800px) {
+  body.slide-out-left,
+  body.slide-out-right,
+  body.slide-in-from-left,
+  body.slide-in-from-right {
+    animation-duration: 0.5s; /* Faster on mobile */
+  }
+  
+  /* Ensure mobile scrolling works properly during normal browsing */
+  body:not(.slide-out-left):not(.slide-out-right):not(.slide-in-from-left):not(.slide-in-from-right) {
+    overflow: auto; /* Enable scrolling when not animating */
+    height: auto; /* Remove fixed height when not animating */
+  }
+}
+
+/* Prevent animation conflicts with existing animations */
+body.slide-out-left .left-text h1,
+body.slide-out-left .left-text p,
+body.slide-out-right .left-text h1,
+body.slide-out-right .left-text p {
+  animation: none; /* Disable text animations during page transition */
+}
+
+/* Ensure diagram doesn't interfere with slide animations */
+body.slide-out-left .diagram-container,
+body.slide-out-right .diagram-container {
+  transform: none; /* Prevent transform conflicts */
+}
+
+
+.slide-out-right {
+  background-color:   #D6EAE8;
+}
+.slide-out-left {
+  background-color:  #0A3959;
+}

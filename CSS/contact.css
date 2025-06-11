@@ -1,0 +1,732 @@
+/* FONT FACE */
+@font-face {
+  font-family: "Archia Bold";
+  src: url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archia Semi Bold";
+  src: url("../Fonts/Archia_Font_Web/05.Archia-Semibold-webfont/archia-semibold-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Metric Light";
+  src: url("../Fonts/Metric_font/Metric-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metric Regular";
+  src: url("../Fonts/Metric_font/Metric-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metric Medium";
+  src: url("../Fonts/Metric_font/Metric-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metric Semi Bold";
+  src: url("../Fonts/Metric_font/Metric-Semibold.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metric Bold";
+  src: url("../Fonts/Metric_font/Metric-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* RESET + GLOBAL STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+  font-family: "Metric Regular", sans-serif;
+  font-weight: 400;
+  color: #333;
+}
+
+/* MAIN CONTAINER */
+.full-landing-image {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #EBEBEB;
+  padding: 85px 0 0 0; /* Remove bottom padding to control with footer */
+}
+
+/* TYPOGRAPHY */
+h2 {
+  font-size: 48px;
+  font-weight: 600;
+  color: #0A3959;
+  font-family: "Archia Semi Bold";
+  letter-spacing: -2%;
+}
+
+h3 {
+  font-family: "Metric Light", sans-serif;
+  font-weight: 300;
+  font-size: 52px;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+h3 a{
+  font-family: "Metric Regular", sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  color: #0A3959;
+  letter-spacing: -2%;
+  cursor: pointer !important;
+}
+
+p {
+  font-family: "Metric Light", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a {
+  font-family: "Metric Light", sans-serif;
+  font-weight: 400;
+  color: inherit;
+  text-decoration: none;
+}
+
+.top-bar {
+ position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  height: 60px;
+  background: white;
+  border-radius: 70px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.top-bar .left,
+.top-bar .center,
+.top-bar .right {
+  display: flex;
+  align-items: center;
+}
+
+.left .logo-icon {
+  height: 20px;
+  width: 133px;
+  margin-right: 10px;
+  cursor: pointer !important;
+}
+
+.page-indicator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: "Archia Bold", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  color: #7a7a7a;
+  pointer-events: none;
+}
+
+.top-bar .right a {
+  font-family: "Archia Semi Bold";
+  text-decoration: none;
+  color: #0A3959;
+  font-weight: 600;
+  font-size: 27px;
+  cursor: pointer !important;
+  letter-spacing: -6%;
+}
+
+/* CONTACT SECTION */
+.contact-container {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: calc(100vh - 170px); /* Account for top spacing and footer */
+  padding-bottom: 100px; /* Space for footer */
+  position: relative; /* Establish positioning context */
+}
+
+.contact-left{
+  width: 50%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.contact-right {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0px;
+  padding-right: 20px;
+}
+
+.memberships img {
+  width: 150px;
+  height: 100px;
+  margin-right: 20px;
+}
+.memberships {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.note {
+  font-size: 18px;
+  line-height: 20px;
+  font-family: "Metric Light";
+  color: #0A3959;
+  font-weight: 400;
+  letter-spacing: -2%;
+}
+
+.contact-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 1080px;
+  max-height: 720px;
+}
+
+@media (max-width: 1440px) {
+  .contact-right img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.contact-top-icon img {
+  width: 100px;
+  height: 40px;
+}
+
+.contact-top-icon {
+  padding-bottom: 10px;
+}
+
+/* CUSTOM CURSOR STYLES */
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.cursor-icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* HEADER CURSOR BEHAVIOR */
+.top-bar, .top-bar * {
+  cursor: default !important;
+}
+
+/* FOOTER STYLES */
+.contact-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  position: absolute; /* Position within container */
+  bottom: 20px; /* 20px from bottom */
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.footer-left {
+  font-family: "Metric Light", sans-serif;
+  font-size: 16px;
+  color: #0A3959;
+  text-align: left;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.footer-right {
+  font-family: "Metric Light", sans-serif;
+  font-size: 16px;
+  color: #0A3959;
+  text-align: right;
+  font-weight: 400px;
+  line-height: 24px;
+}
+
+/* Add pointer cursor for email and phone links */
+.contact-left a[href^="mailto:"],
+.contact-left a[href^="tel:"],
+.contact-left a[style*="font-family: Metric Light"] {
+  cursor: pointer !important;
+}
+
+/* Hide custom cursor when hovering these elements */
+.contact-left a[href^="mailto:"]:hover ~ .custom-cursor,
+.contact-left a[href^="tel:"]:hover ~ .custom-cursor,
+.contact-left a[style*="font-family: Metric Light"]:hover ~ .custom-cursor {
+  display: none !important;
+}
+
+.telephone{
+  font-size: 20px; 
+  font-weight: 500; 
+  font-family: "Metric Semi Bold";
+}
+
+.phone-link{
+  font-size: 20px; 
+  font-weight: 400; 
+  font-family: Metric Light; 
+  color: #0A3959;
+  line-height: 24px;
+}
+
+.contact-info{
+  font-size: 20px;
+  line-height: 24px;
+  color: #0A3959;
+}
+
+.address-link {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Metric Light";
+  color: #0A3959;
+  text-decoration: none;
+  cursor: pointer !important;
+}
+
+.address-link:hover {
+  text-decoration: none;
+}
+
+/* Add address link to the cursor exception list */
+.contact-left a[href^="mailto:"],
+.contact-left a[href^="tel:"],
+.contact-left a.address-link,
+.contact-left a[style*="font-family: Metric Light"] {
+  cursor: pointer !important;
+}
+
+.contact-left a[href^="mailto:"]:hover ~ .custom-cursor,
+.contact-left a[href^="tel:"]:hover ~ .custom-cursor,
+.contact-left a.address-link:hover ~ .custom-cursor,
+.contact-left a[style*="font-family: Metric Light"]:hover ~ .custom-cursor {
+  display: none !important;
+}
+
+.cursor-active-zone {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.left-active {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.right-active {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.left-active.active, .right-active.active {
+  opacity: 0.3;
+}
+
+/* CURSOR ACTIVE STATES */
+.left-cursor.active .cursor-icon,
+.right-cursor.active .cursor-icon {
+  transform: scale(1.1);
+}
+
+.left a {
+  display: inline-block;
+  line-height: 0;
+}
+
+.left a, .logo-icon {
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 800px) {
+  .top-bar {
+    height: 60px;
+  }
+
+  .left .logo-icon{
+    width: 133px;
+    height: 20px;
+  }
+
+  .left-cursor,
+  .right-cursor {
+    display: none !important;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .contact-left,
+  .contact-right {
+    width: 100%;
+    text-align: left;
+  }
+
+  .contact-right {
+    order: 2;
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .contact-left {
+    order: 1;
+  }
+
+  .contact-footer {
+    order: 3;
+    position: relative !important;
+    bottom: auto !important;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0px 20px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: left !important;
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 40px !important;
+  }
+
+  h3, h3 a {
+    font-size: 28px !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .contact-info,
+  .telephone,
+  .phone-link,
+  .address-link {
+    font-size: 18px !important;
+    line-height: 21px;
+  }
+
+  .note {
+    font-size: 18px !important;
+    line-height: 20px;
+  }
+
+  .memberships {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .memberships img {
+    width: 115px;
+    height: auto;
+    margin-right: 0;
+  }
+
+  .contact-left{
+    padding: 20px 20px;
+    padding-bottom:30px;
+  }
+
+  body, html {
+    overflow: auto !important;
+    height: auto !important;
+  }
+
+  .full-landing-image {
+    min-height: 100vh;
+    height: auto !important;
+    overflow: visible !important;
+    padding-bottom: 0;
+  }
+
+  .contact-container {
+    min-height: auto !important;
+    overflow: visible !important;
+    padding-bottom: 40px;
+  }
+  
+  .contact-top-icon {
+    padding-bottom: 0px;
+  }
+  .contact-top-icon img {
+    width: 80px;
+    height: auto;
+  }
+
+  .contact-right{
+    padding: 0px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .mobile {
+    display: none !important; 
+  }
+}
+
+/* Add this at the top of your CSS file */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Contact Container Animation */
+.contact-container {
+  animation: fadeUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Left Column Animations */
+.contact-left h2 {
+  animation: fadeUp 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-left h3,
+.contact-left h3 a {
+  animation: fadeUp 0.8s ease-out 0.5s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-left .contact-info {
+  animation: fadeUp 0.8s ease-out 0.6s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-left .note {
+  animation: fadeUp 0.8s ease-out 0.7s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-left .memberships {
+  animation: fadeUp 0.8s ease-out 0.8s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Right Column Animation */
+.contact-right img {
+  animation: fadeUp 0.8s ease-out 0.9s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Footer Animation */
+.contact-footer {
+  animation: fadeUp 0.8s ease-out 1s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 800px) {
+  /* Simplify animations for mobile */
+  .contact-left > *,
+  .contact-right > * {
+    animation: fadeUp 0.8s ease-out 0.4s forwards !important;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .contact-footer {
+    animation: fadeUp 0.8s ease-out 0.5s forwards;
+  }
+}
+
+/* ====================================
+   SLIDE ANIMATION SYSTEM - CONTACT PAGE
+   Add this CSS to your existing contact.css file
+   ==================================== */
+
+/* Enhanced slide animations - Exit animations (leaving current page) */
+body.slide-out-left {
+  animation: slideOutLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-out-right {
+  animation: slideOutRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Slide in animations - Entry animations (entering new page) */
+body.slide-in-from-left {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-in-from-right {
+  animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Keyframe animations */
+@keyframes slideOutLeft {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideOutRight {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideInFromLeft {
+  from { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideInFromRight {
+  from { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+/* Mobile optimized slide animations */
+@media (max-width: 800px) {
+  body.slide-out-left,
+  body.slide-out-right,
+  body.slide-in-from-left,
+  body.slide-in-from-right {
+    animation-duration: 0.5s; /* Faster on mobile */
+  }
+  
+  /* Ensure mobile scrolling works properly during normal browsing */
+  body:not(.slide-out-left):not(.slide-out-right):not(.slide-in-from-left):not(.slide-in-from-right) {
+    overflow-x: hidden; /* Keep horizontal overflow hidden */
+  }
+}
+
+/* Prevent animation conflicts with existing page animations */
+body.slide-out-left .contact-container *,
+body.slide-out-right .contact-container *,
+body.slide-out-left .contact-left *,
+body.slide-out-right .contact-left *,
+body.slide-out-left .contact-right *,
+body.slide-out-right .contact-right * {
+  animation-play-state: paused; /* Pause other animations during page transition */
+}
+
+/* Optional: Add a subtle backdrop during transition */
+body.slide-out-left::before,
+body.slide-out-right::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+/* Ensure proper transform origin for smooth animations */
+body, html {
+  transform-origin: center center;
+}
+
+.slide-out-right {
+  background-color:  #EBEBEB;
+}
+.slide-out-left {
+  background-color:  #99BBD5;
+}

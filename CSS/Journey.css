@@ -1,0 +1,555 @@
+/* FONT FACE */
+@font-face {
+  font-family: "Archia Bold";
+  src: url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archia Semi Bold";
+  src: url("../Fonts/Archia_Font_Web/05.Archia-Semibold-webfont/archia-semibold-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archia Regular";
+  src: url("../Fonts/Archia_Font_Web/03.Archia-Regular-webfont/archia-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Metric Light";
+  src: url("../Fonts/Metric_font/Metric-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metric Regular";
+  src: url("../Fonts/Metric_font/Metric-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metric Medium";
+  src: url("../Fonts/Metric_font/Metric-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metric Bold";
+  src: url("../Fonts/Metric_font/Metric-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* RESET + GLOBAL STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+body, html {
+  height: 100%;
+  font-family: "Metric Regular", sans-serif;
+  font-weight: 400;
+  color: #333;
+  /* Add transform origin for smooth animations */
+  transform-origin: center center;
+  /* Prevent horizontal scrollbar during animations */
+  overflow-x: hidden;
+}
+
+/* PAGE CONTAINER */
+.page-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #D5EDEC;
+  padding-top: 105px;
+}
+
+/* TOP BAR - MATCHING OTHER PAGES */
+.top-bar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  height: 60px;
+  background: white;
+  border-radius: 70px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.top-bar .left,
+.top-bar .right {
+  display: flex;
+  align-items: center;
+}
+
+.left .logo-icon {
+  height: 20px;
+  width: 133px;
+  margin-right: 10px;
+  cursor: pointer !important;
+}
+
+.page-indicator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: "Archia Bold", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  color: #7a7a7a;
+  pointer-events: none;
+}
+
+.top-bar .right a {
+ font-family: "Archia Semi Bold";
+  text-decoration: none;
+  color: #0A3959;
+  font-weight: 600;
+  font-size: 27px;
+  cursor: pointer !important;
+  letter-spacing: -6%;
+}
+
+/* JOURNEY CONTENT */
+.journey-content {
+  text-align: left;
+  padding-top: 12%;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.journey-content h1 {
+  font-size: 48px;
+  font-weight: 600;
+  color: #0A3959;
+  margin-bottom: 15px;
+  font-family: "Archia Semi Bold";
+  letter-spacing: -2%;
+}
+
+.journey-content p {
+  font-size: 20px;
+  line-height: 22px;
+  color: #0A3959;
+  font-family: "Metric Light";
+  font-weight: 400;
+  letter-spacing: -2%;
+  margin-bottom: 30px;
+}
+
+/* FEATURES GRID */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 30px;
+  width: 100%;
+  margin: 0 auto; /* Center the grid */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .features-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+}
+
+.feature-button {
+  font-family: "Archia Semi Bold", sans-serif;
+  font-size: 18px;
+  color: #fff;
+  background-color: #2CA5A0;
+  border: none;
+  padding: 20px;
+  border-radius: 30px;
+  text-align: center;
+  cursor: pointer !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  font-weight: 500;
+}
+
+
+.feature-button.active {
+  background-color: #0A3959;
+  color: white;
+}
+
+/* CUSTOM CURSOR STYLES */
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.cursor-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.left a {
+  display: inline-block; /* Keeps the logo's original position */
+  line-height: 0;       /* Removes extra space below the image */
+}
+
+.left a, .logo-icon {
+  margin: 0;
+  padding: 0;
+}
+
+.feature-button:hover {
+  background-color: #0A3959;
+  color: white;
+}
+
+.feature-button:active {
+  background-color: #0A3959;
+  color: white;
+}
+
+
+@media (max-width: 800px) {
+  .top-bar {
+    height: 60px;
+  }
+
+  .left .logo-icon{
+    width: 133px;
+    height: 20px;
+  }
+
+  .left-cursor,
+  .right-cursor {
+    display: none !important;
+  }
+
+  .journey-content{
+    padding-top: 0%;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10%;
+  }
+
+  .mobile{
+    display: none;
+  }
+
+  .journey-content p{
+    font-family: "Metric Light";
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0%;
+  }
+
+
+  .journey-content h1{
+    font-size: 44px;
+    margin-bottom: 20px;
+  }
+
+  .features-grid {
+    gap: 20px;
+  }
+
+  .text {
+    font-size: 16px !important;
+    padding: 20px   !important;
+  }
+}
+
+/* Custom Button Styles */
+.custom-button {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  overflow: hidden;
+  min-width: 400px;
+  cursor: pointer;
+  border: none;
+  height: 60px;
+}
+
+
+.number-box {
+  font-family: "Archia Semi Bold", sans-serif;
+  background-color: #2a9d9d;
+  color: white;
+  font-weight: bold;
+  font-size: 48px;
+  width: 60px;
+  text-align: center;
+  padding: 10px 0px 10px 0px;
+}
+
+.text {
+  font-family: "Archia Semi Bold", sans-serif;
+  color: #0A3959;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 20px;
+  flex: 1;
+  letter-spacing: -2%;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .custom-button {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+
+.custom-button {
+  cursor: default !important; 
+}
+
+
+
+.journey-content h1{
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.journey-content p{
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Add these animations at the top of your CSS */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Top Bar Animations */
+
+
+/* Main Content Animations */
+.journey-content {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.journey-content h1 {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.journey-content p {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Features Grid Animations */
+.features-grid {
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Feature Buttons - Staggered Animations */
+.feature-button {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger the button animations */
+.feature-button:nth-child(1) { animation-delay: 0.7s; }
+.feature-button:nth-child(2) { animation-delay: 0.8s; }
+.feature-button:nth-child(3) { animation-delay: 0.9s; }
+.feature-button:nth-child(4) { animation-delay: 1.0s; }
+.feature-button:nth-child(5) { animation-delay: 1.1s; }
+.feature-button:nth-child(6) { animation-delay: 1.2s; }
+
+/* Custom Buttons Animations */
+.custom-button {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger the custom button animations */
+.custom-button:nth-child(1) { animation-delay: 0.7s; }
+.custom-button:nth-child(2) { animation-delay: 0.8s; }
+.custom-button:nth-child(3) { animation-delay: 0.9s; }
+.custom-button:nth-child(4) { animation-delay: 1.0s; }
+
+/* Mobile Optimizations */
+@media (max-width: 800px) {
+  /* Simplify animations for mobile */
+  .journey-content h1,
+  .journey-content p {
+    animation-delay: 0.3s !important;
+  }
+  
+  .features-grid,
+  .feature-button,
+  .custom-button {
+    animation-delay: 0.4s !important;
+  }
+  
+  /* Reduce motion distance for mobile */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ====================================
+   SLIDE ANIMATION SYSTEM - JOURNEY PAGE
+   ==================================== */
+
+/* Enhanced slide animations - Exit animations (leaving current page) */
+body.slide-out-left {
+  animation: slideOutLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-out-right {
+  animation: slideOutRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Slide in animations - Entry animations (entering new page) */
+body.slide-in-from-left {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-in-from-right {
+  animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Keyframe animations */
+@keyframes slideOutLeft {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideOutRight {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideInFromLeft {
+  from { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideInFromRight {
+  from { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+/* Mobile optimized slide animations */
+@media (max-width: 800px) {
+  body.slide-out-left,
+  body.slide-out-right,
+  body.slide-in-from-left,
+  body.slide-in-from-right {
+    animation-duration: 0.5s; /* Faster on mobile */
+  }
+  
+  /* Ensure mobile scrolling works properly during normal browsing */
+  body:not(.slide-out-left):not(.slide-out-right):not(.slide-in-from-left):not(.slide-in-from-right) {
+    overflow-x: hidden; /* Keep horizontal overflow hidden */
+  }
+}
+
+/* Prevent animation conflicts with existing page animations */
+body.slide-out-left .journey-content *,
+body.slide-out-right .journey-content *,
+body.slide-out-left .custom-button,
+body.slide-out-right .custom-button,
+body.slide-out-left .feature-button,
+body.slide-out-right .feature-button {
+  animation-play-state: paused; /* Pause other animations during page transition */
+}
+
+/* Optional: Add a subtle backdrop during transition */
+body.slide-out-left::before,
+body.slide-out-right::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+
+.slide-out-right {
+  background-color:   #0A3959 ;
+}
+.slide-out-left {
+  background-color: #EBEBEB;
+}

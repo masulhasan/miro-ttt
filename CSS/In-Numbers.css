@@ -1,0 +1,678 @@
+/* FONT FACE */
+@font-face {
+  font-family: "Archia Bold";
+  src: url("../Fonts/Archia_Font_Web/06.Archia-Bold-webfont/archia-bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Archia Semi Bold";
+  src: url("../Fonts/Archia_Font_Web/05.Archia-Semibold-webfont/archia-semibold-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Metric Light";
+  src: url("../Fonts/Metric_font/Metric-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metric Regular";
+  src: url("../Fonts/Metric_font/Metric-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metric Medium";
+  src: url("../Fonts/Metric_font/Metric-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Metric Bold";
+  src: url("../Fonts/Metric_font/Metric-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* RESET + GLOBAL STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+  font-family: "Metric Regular", sans-serif;
+  font-weight: 400;
+  color: #333;
+}
+
+/* MAIN CONTAINER */
+.full-landing-image {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0A3959;
+}
+
+/* TYPOGRAPHY */
+h2 {
+  font-family: "Archia Bold", sans-serif;
+  font-weight: 700;
+  font-size: 52px;
+  line-height: 1.2;
+  color: black;
+  letter-spacing: -2%;
+}
+
+h3 {
+  font-family: "Metric Light", sans-serif;
+  font-weight: 300;
+  font-size: 52px;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+h3 a{
+  font-family: "Metric Regular", sans-serif;
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  color: black;
+  letter-spacing: -2%;
+  cursor: pointer !important;
+}
+
+p {
+  font-family: "Metric Light", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a {
+  font-family: "Metric Light", sans-serif;
+  font-weight: 400;
+  color: inherit;
+  text-decoration: none;
+}
+
+.top-bar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  height: 60px;
+  background: white;
+  border-radius: 70px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.top-bar .left,
+.top-bar .center,
+.top-bar .right {
+  display: flex;
+  align-items: center;
+}
+
+.left .logo-icon {
+  height: 20px;
+  width: 133px;
+  cursor: pointer !important;
+}
+.left .logo-icon a{
+  height: 65px;
+  width: 180px;
+  margin-right: 10px;
+  cursor: pointer !important;
+}
+
+.page-indicator {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: "Archia Bold", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.02em;
+  color: #7a7a7a;
+  pointer-events: none;
+}
+
+.top-bar .right a {
+  font-family: "Archia Semi Bold";
+  text-decoration: none;
+  color: #0A3959;
+  font-weight: 600;
+  font-size: 27px;
+  cursor: pointer !important;
+  letter-spacing: -6%;
+}
+
+/* CONTACT SECTION */
+.contact-container {
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding-top: 19.6%;
+}
+
+.contact-left{
+  width: 50%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.contact-right {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.memberships img {
+  width: 150px;
+  height: 100px;
+  margin-right: 20px;
+}
+.memberships {
+  margin-top: 20px;
+}
+
+.note {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "Metric Light";
+  color: #000000;
+  font-weight: 400;
+}
+
+.contact-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 1080px;
+  max-height: 720px;
+}
+
+@media (max-width: 1440px) {
+  .contact-right img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.contact-top-icon img {
+  width: 100px;
+  height: 40px;
+}
+
+.contact-top-icon {
+  padding-bottom: 10px;
+}
+
+/* CUSTOM CURSOR STYLES */
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.cursor-icon {
+  width: 50px;
+  height: 50px;
+}
+
+/* HEADER CURSOR BEHAVIOR */
+.top-bar, .top-bar * {
+  cursor: default !important;
+}
+
+/* FOOTER STYLES */
+.contact-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+}
+
+.footer-left {
+  font-family: "Metric Light", sans-serif;
+  font-size: 16px;
+  color: #000;
+  text-align: left;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.footer-right {
+  font-family: "Metric Light", sans-serif;
+  font-size: 16px;
+  color: #000;
+  text-align: right;
+  font-weight: 400px;
+  line-height: 24px;
+}
+
+/* Adjust contact container to accommodate footer */
+.contact-container {
+  position: relative;
+  min-height: calc(100vh - 100px);
+  padding-bottom: 80px;
+}
+
+/* Add pointer cursor for email and phone links */
+.contact-left a[href^="mailto:"],
+.contact-left a[href^="tel:"],
+.contact-left a[style*="font-family: Metric Light"] {
+  cursor: pointer !important;
+}
+
+/* Hide custom cursor when hovering these elements */
+.contact-left a[href^="mailto:"]:hover ~ .custom-cursor,
+.contact-left a[href^="tel:"]:hover ~ .custom-cursor,
+.contact-left a[style*="font-family: Metric Light"]:hover ~ .custom-cursor {
+  display: none !important;
+}
+
+.telephone{
+  font-size: 20px; 
+  font-weight: 700; 
+  font-family: Metric Bold;
+}
+
+.phone-link{
+  font-size: 20px; 
+  font-weight: 400; 
+  font-family: Metric Light; 
+  color: black;
+  line-height: 24px;
+}
+
+.contact-info{
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.address-link {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: Metric Light;
+  color: black;
+  text-decoration: none;
+  cursor: pointer !important;
+}
+
+.address-link:hover {
+  text-decoration: none;
+}
+
+.contact-left a[href^="mailto:"],
+.contact-left a[href^="tel:"],
+.contact-left a.address-link,
+.contact-left a[style*="font-family: Metric Light"] {
+  cursor: pointer !important;
+}
+
+.contact-left a[href^="mailto:"]:hover ~ .custom-cursor,
+.contact-left a[href^="tel:"]:hover ~ .custom-cursor,
+.contact-left a.address-link:hover ~ .custom-cursor,
+.contact-left a[style*="font-family: Metric Light"]:hover ~ .custom-cursor {
+  display: none !important;
+}
+
+/* COUNTER STYLES */
+.counter-container {
+  display: flex;
+  align-items: flex-end;
+  margin: 40px 0 10px;
+}
+.counter-container-left {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 13px;
+}
+
+.counter {
+  font-family: "Archia Bold", sans-serif;
+  font-size: 125px;
+  line-height: 0.9;
+  color: #2CA5A0;
+  letter-spacing: -2%;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.counter-suffix {
+  font-family: "Archia Bold", sans-serif;
+  font-size: 120px;
+  line-height: 0.9;
+  color: #2CA5A0;
+  margin-left: 0px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.counter-label {
+  font-family: "Metric Regular", sans-serif;
+  font-size: 40px;
+  color: white;
+  margin-top: 0;
+  text-transform: none;
+  line-height: 48px;
+  letter-spacing: -2%;
+}
+
+.contact-left h2 {
+  font-family: "Archia Semi Bold", sans-serif;
+  font-size: 48px;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 7px;
+  letter-spacing: -2%;
+}
+
+/* Adjust layout for numbers section */
+.contact-right .counter-container {
+  justify-content: flex-start !important;
+  text-align: right !important;
+  width: 100%;
+  padding-top: 62px;
+}
+
+.contact-right .counter-label {
+  text-align: left !important;
+  width: 100%;
+  padding-left: 8px;
+  padding-top: 6px;
+}
+
+.left a {
+  display: inline-block;
+  line-height: 0;
+}
+
+.left a, .logo-icon {
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 800px) {
+  .top-bar {
+    height: 52px;
+  }
+
+  .left .logo-icon{
+    width: 140px;
+  }
+
+  .left-cursor,
+  .right-cursor {
+    display: none !important;
+  }
+  .contact-container {
+    flex-direction: column; 
+    padding-top: 104px;
+    padding-left: 40px;
+    padding-right: 40px; 
+  }
+
+  .contact-left,
+  .contact-right {
+    width: 100%; 
+    padding: 0px; 
+    text-align: left; 
+    align-items: left !important; 
+    margin-bottom: 80px;
+  }
+
+  .contact-right {
+    padding-top: 0;
+    margin-top: -20px;
+  }
+
+  h2 {
+    font-size: 26px !important;
+  }
+
+  .counter,
+  .counter-suffix {
+    font-size: 70px !important; 
+    line-height: 0.9 !important;
+    font-family: "Archia Semi Bold", sans-serif; 
+    letter-spacing: -2%;
+  }
+
+
+  .counter-label {
+    font-size: 28px !important; 
+    text-align: left !important; 
+    line-height: 30px;
+  }
+
+  .counter-container,
+  .counter-container-left {
+    justify-content: left !important;
+    margin: 20px 0 !important;
+  }
+
+  /* Adjust footer for mobile */
+  .contact-footer {
+    position: relative;
+    bottom: auto;
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: left !important;
+    margin-bottom: 10px;
+  }
+
+  .contact-right .counter-container{
+    padding-top: 1px;
+  }
+
+  .contact-left h2{
+    font-size: 44px !important;
+    letter-spacing: -2%;
+    font-family: "Archia Semi Bold", sans-serif;
+    font-weight: 600;
+    margin: 0px;
+  }
+
+  .contact-right .counter-label{
+    padding-top: 0px;
+  }
+}
+
+.counter-serfix span { 
+  font-family: "Archia Semi Bold", sans-serif;
+  font-size: 40px;
+  line-height: 1;
+  color: #2CA5A0;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+/*Animation*/
+
+.contact-left h2 {
+  animation: fadeUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.counter-label {
+  animation: fadeUp 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Add these styles to your In-Numbers CSS file */
+
+/* Ensure body can handle slide animations */
+body {
+  /* Your existing body styles... */
+  /* Add transform origin for smooth animations */
+  transform-origin: center center;
+}
+
+/* Enhanced slide animations for this page */
+body.slide-out-left {
+  animation: slideOutLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-out-right {
+  animation: slideOutRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Slide in animations for page entrance */
+body.slide-in-from-left {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.slide-in-from-right {
+  animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes slideOutLeft {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideOutRight {
+  from { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+  to { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+}
+
+@keyframes slideInFromLeft {
+  from { 
+    transform: translateX(-100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes slideInFromRight {
+  from { 
+    transform: translateX(100%); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateX(0); 
+    opacity: 1; 
+  }
+}
+
+/* Mobile optimized animations */
+@media (max-width: 800px) {
+  body.slide-out-left,
+  body.slide-out-right,
+  body.slide-in-from-left,
+  body.slide-in-from-right {
+    animation-duration: 0.5s; /* Faster on mobile */
+  }
+  
+  /* Ensure mobile scrolling works properly during normal browsing */
+  body:not(.slide-out-left):not(.slide-out-right):not(.slide-in-from-left):not(.slide-in-from-right) {
+    overflow: auto; /* Enable scrolling when not animating */
+    height: auto; /* Remove fixed height when not animating */
+  }
+}
+
+/* Prevent animation conflicts with existing animations */
+body.slide-out-left .counter,
+body.slide-out-right .counter {
+  animation: none; /* Disable counter animations during page transition */
+}
+
+/* Prevent conflicts with any text animations */
+body.slide-out-left h1,
+body.slide-out-left h2,
+body.slide-out-left p,
+body.slide-out-right h1,
+body.slide-out-right h2,
+body.slide-out-right p {
+  animation: none; /* Disable text animations during page transition */
+}
+
+/* Ensure counters don't interfere with slide animations */
+body.slide-out-left .counter,
+body.slide-out-right .counter {
+  transform: none; /* Prevent transform conflicts */
+}
+
+
+/* Ensure the background covers the full view during animation */
+.full-landing-image.slide-out-left,
+.full-landing-image.slide-out-right {
+  background-color: rgb(211, 211, 211);
+}
+
+.slide-out-right {
+  background-color:  #EBEBEB;
+}
+.slide-out-left {
+  background-color: #D5EDEC;
+}
