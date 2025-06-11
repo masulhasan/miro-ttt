@@ -1,4 +1,4 @@
-// RENEWABLE-CONFIDENCE.js - Simplified Performance Version
+// RENEWABLE-CONFIDENCE.js - Fixed Video Playback
 const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 let isScrolling = false;
 let videoObserver;
@@ -36,18 +36,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const contactLink = document.querySelector('.contact-link');
     const carouselTrack = document.querySelector('.carousel-track');
 
-    // Simple video setup - start immediately
+    // Setup videos with faster loading
     setupVideos();
-    
-    // Preload videos before starting animation
-    preloadFirstVideos();
     
     // Start animation after page load
     if (carouselTrack) {
         window.addEventListener('load', () => {
             setTimeout(() => {
                 carouselTrack.classList.add('animate-scroll');
-            }, 800); // Reduced from 1000ms
+            }, 1000);
         });
     }
 
@@ -62,76 +59,71 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function setupVideos() {
     const videos = document.querySelectorAll('.carousel-video video');
-    let loadedCount = 0;
     
     videos.forEach((video, index) => {
+        // Basic video settings
         video.loop = true;
         video.muted = true;
         video.playsInline = true;
         video.preload = 'auto';
         
-        // Make video visible immediately
+        // Make videos visible immediately
         video.style.opacity = '1';
         video.style.visibility = 'visible';
         
-        // Simple play function
-        const playVideo = () => {
-            if (video.readyState >= 1) { // Changed from 2 to 1 for faster start
-                video.play().catch(() => {
-                    video.muted = true;
-                    video.play().catch(() => {});
-                });
-            }
-        };
-
-        // Handle when video data starts loading
-        const handleLoadStart = () => {
-            loadedCount++;
-            // Play first few videos as soon as they start loading
-            if (index < 6) { // Increased from 4 to 6
-                playVideo();
-            }
-            
-            // Start observer after first few videos load
-            if (loadedCount === 6 || loadedCount === videos.length) {
-                setupVideoObserver();
-            }
-        };
-
-        // Multiple events for faster response
-        if (video.readyState >= 1) {
-            handleLoadStart();
-        } else {
-            video.addEventListener('loadstart', handleLoadStart, { once: true });
-            video.addEventListener('loadedmetadata', handleLoadStart, { once: true });
-        }
-        
-        // Force load
+        // Force load to start downloading
         video.load();
+        
+        // Play first few videos when ready
+        if (index < 6) {
+            const playWhenReady = () => {
+                if (video.readyState >= 2) {
+                    video.play().catch(() => {
+                        video.muted = true;
+                        video.play().catch(() => {});
+                    });
+                }
+            };
+
+            if (video.readyState >= 2) {
+                playWhenReady();
+            } else {
+                video.addEventListener('canplay', playWhenReady, { once: true });
+                video.addEventListener('loadeddata', playWhenReady, { once: true });
+            }
+        }
     });
+
+    // Setup observer after a short delay
+    setTimeout(setupVideoObserver, 500);
 }
 
 function setupVideoObserver() {
     const carouselContainer = document.querySelector('.right-carousel');
-    if (!carouselContainer || videoObserver) return; // Prevent multiple observers
+    if (!carouselContainer) return;
 
     videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target.querySelector('video');
             if (!video) return;
 
-            if (entry.isIntersecting) {
-                if (video.paused && video.readyState >= 1) { // Changed from 2 to 1
-                    video.play().catch(() => {});
+            if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+                if (video.paused && video.readyState >= 2) {
+                    video.play().catch(() => {
+                        video.muted = true;
+                        video.play().catch(() => {});
+                    });
                 }
-            } else if (entry.intersectionRatio === 0) { // Only pause when completely out of view
-                video.pause();
+            } else if (entry.intersectionRatio === 0) {
+                if (!video.paused) {
+                    video.pause();
+                }
             }
         });
     }, {
         root: carouselContainer,
-        threshold: [0, 0.1],
-        rootMargin: '100px' // Start loading videos before they're visible
+        threshold: [0, 0.1, 0.5],
+        rootMargin: '50px'
     });
 
     document.querySelectorAll('.carousel-video').forEach(container => {
