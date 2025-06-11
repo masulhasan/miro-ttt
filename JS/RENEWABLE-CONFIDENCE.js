@@ -36,15 +36,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const contactLink = document.querySelector('.contact-link');
     const carouselTrack = document.querySelector('.carousel-track');
 
-    // Simple video setup
+    // Simple video setup - start immediately
     setupVideos();
+    
+    // Preload videos before starting animation
+    preloadFirstVideos();
     
     // Start animation after page load
     if (carouselTrack) {
         window.addEventListener('load', () => {
             setTimeout(() => {
                 carouselTrack.classList.add('animate-scroll');
-            }, 1000);
+            }, 800); // Reduced from 1000ms
         });
     }
 
@@ -59,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function setupVideos() {
     const videos = document.querySelectorAll('.carousel-video video');
+    let loadedCount = 0;
     
     videos.forEach((video, index) => {
         video.loop = true;
@@ -66,9 +70,13 @@ function setupVideos() {
         video.playsInline = true;
         video.preload = 'auto';
         
+        // Make video visible immediately
+        video.style.opacity = '1';
+        video.style.visibility = 'visible';
+        
         // Simple play function
         const playVideo = () => {
-            if (video.readyState >= 2) {
+            if (video.readyState >= 1) { // Changed from 2 to 1 for faster start
                 video.play().catch(() => {
                     video.muted = true;
                     video.play().catch(() => {});
@@ -76,23 +84,36 @@ function setupVideos() {
             }
         };
 
-        // Play first few videos immediately
-        if (index < 4) {
-            if (video.readyState >= 2) {
+        // Handle when video data starts loading
+        const handleLoadStart = () => {
+            loadedCount++;
+            // Play first few videos as soon as they start loading
+            if (index < 6) { // Increased from 4 to 6
                 playVideo();
-            } else {
-                video.addEventListener('canplay', playVideo, { once: true });
             }
-        }
-    });
+            
+            // Start observer after first few videos load
+            if (loadedCount === 6 || loadedCount === videos.length) {
+                setupVideoObserver();
+            }
+        };
 
-    // Simple intersection observer
-    setTimeout(setupVideoObserver, 1000);
+        // Multiple events for faster response
+        if (video.readyState >= 1) {
+            handleLoadStart();
+        } else {
+            video.addEventListener('loadstart', handleLoadStart, { once: true });
+            video.addEventListener('loadedmetadata', handleLoadStart, { once: true });
+        }
+        
+        // Force load
+        video.load();
+    });
 }
 
 function setupVideoObserver() {
     const carouselContainer = document.querySelector('.right-carousel');
-    if (!carouselContainer) return;
+    if (!carouselContainer || videoObserver) return; // Prevent multiple observers
 
     videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -100,16 +121,17 @@ function setupVideoObserver() {
             if (!video) return;
 
             if (entry.isIntersecting) {
-                if (video.paused && video.readyState >= 2) {
+                if (video.paused && video.readyState >= 1) { // Changed from 2 to 1
                     video.play().catch(() => {});
                 }
-            } else {
+            } else if (entry.intersectionRatio === 0) { // Only pause when completely out of view
                 video.pause();
             }
         });
     }, {
         root: carouselContainer,
-        threshold: 0.1
+        threshold: [0, 0.1],
+        rootMargin: '100px' // Start loading videos before they're visible
     });
 
     document.querySelectorAll('.carousel-video').forEach(container => {
